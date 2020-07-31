@@ -1,0 +1,215 @@
+fileFormatVersion: 2
+guid: 86907319fde01af41bf9368b76fe76b0
+timeCreated: 1573508519
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: BITctrlPnl
+    100002: Box11
+    100004: Box12
+    100006: DrSw_Assy
+    100008: DrSw_Brak
+    100010: DrSw_Btn
+    100012: Duplicate19
+    100014: FillValve1
+    100016: FillValve2
+    100018: FillValve3
+    100020: FillValve4
+    100022: FrontSupport
+    100024: FuelChart
+    100026: HingeL_Btm
+    100028: HingeL_Top
+    100030: HingeR_Btm
+    100032: HingeR_Top
+    100034: IRP_Port
+    100036: Panel_Front
+    100038: PanelMounting
+    100040: //RootNode
+    100042: WholeSupport
+    400000: BITctrlPnl
+    400002: Box11
+    400004: Box12
+    400006: DrSw_Assy
+    400008: DrSw_Brak
+    400010: DrSw_Btn
+    400012: Duplicate19
+    400014: FillValve1
+    400016: FillValve2
+    400018: FillValve3
+    400020: FillValve4
+    400022: FrontSupport
+    400024: FuelChart
+    400026: HingeL_Btm
+    400028: HingeL_Top
+    400030: HingeR_Btm
+    400032: HingeR_Top
+    400034: IRP_Port
+    400036: Panel_Front
+    400038: PanelMounting
+    400040: //RootNode
+    400042: WholeSupport
+    2100000: BITctrlPnlMat
+    2100002: Box11Mat
+    2100004: Box12Mat
+    2100006: DrSw_AssyMat
+    2100008: DrSw_BrakMat
+    2100010: DrSw_BtnMat
+    2100012: Duplicate19Mat
+    2100014: FillValve1Mat
+    2100016: FillValve2Mat
+    2100018: FillValve3Mat
+    2100020: FillValve4Mat
+    2100022: FrontSupportMat
+    2100024: FuelChartMat
+    2100026: HingeL_BtmMat
+    2100028: HingeL_TopMat
+    2100030: HingeR_BtmMat
+    2100032: HingeR_TopMat
+    2100034: IRP_PortMat
+    2100036: Panel_FrontMat
+    2100038: PanelMountingMat
+    2100040: WholeSupportMat
+    2300000: BITctrlPnl
+    2300002: Box11
+    2300004: Box12
+    2300006: DrSw_Assy
+    2300008: DrSw_Brak
+    2300010: DrSw_Btn
+    2300012: Duplicate19
+    2300014: FillValve1
+    2300016: FillValve2
+    2300018: FillValve3
+    2300020: FillValve4
+    2300022: FrontSupport
+    2300024: FuelChart
+    2300026: HingeL_Btm
+    2300028: HingeL_Top
+    2300030: HingeR_Btm
+    2300032: HingeR_Top
+    2300034: IRP_Port
+    2300036: Panel_Front
+    2300038: PanelMounting
+    2300040: WholeSupport
+    3300000: BITctrlPnl
+    3300002: Box11
+    3300004: Box12
+    3300006: DrSw_Assy
+    3300008: DrSw_Brak
+    3300010: DrSw_Btn
+    3300012: Duplicate19
+    3300014: FillValve1
+    3300016: FillValve2
+    3300018: FillValve3
+    3300020: FillValve4
+    3300022: FrontSupport
+    3300024: FuelChart
+    3300026: HingeL_Btm
+    3300028: HingeL_Top
+    3300030: HingeR_Btm
+    3300032: HingeR_Top
+    3300034: IRP_Port
+    3300036: Panel_Front
+    3300038: PanelMounting
+    3300040: WholeSupport
+    4300000: BITctrlPnl
+    4300002: Box11
+    4300004: Box12
+    4300006: DrSw_Assy
+    4300008: DrSw_Brak
+    4300010: DrSw_Btn
+    4300012: Duplicate19
+    4300014: FillValve1
+    4300016: FillValve2
+    4300018: FillValve3
+    4300020: FillValve4
+    4300022: FrontSupport
+    4300024: FuelChart
+    4300026: HingeL_Btm
+    4300028: HingeL_Top
+    4300030: HingeR_Btm
+    4300032: HingeR_Top
+    4300034: IRP_Port
+    4300036: Panel_Front
+    4300038: PanelMounting
+    4300040: WholeSupport
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
