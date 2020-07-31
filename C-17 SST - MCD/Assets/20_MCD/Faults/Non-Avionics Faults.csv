@@ -1,0 +1,10 @@
+﻿// This file contains a listing of all avionics faults so this simulation can be updated in the future,,,
+// How it works:,,,
+"// Fault Type, Fault Name, Fault Category, Additional Faults",,,
+,,,
+WCC,WCC-LFPEMBAT1,2,NULL
+WCC,WCC-LFPEMBAT2,2,NULL
+WCC,WCC-LFPEMBAT3,2,NULL
+WCC,WCC-LFPEESBAT,2,NULL
+WCC,WCC-LFPDFOGCO,1,NULL
+WCC,WCC-PIUVSTABA,2,NULL

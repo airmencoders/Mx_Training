@@ -1,0 +1,231 @@
+// This file contains a listing of all avionics faults so this simulation can be updated without code changes
+// 
+// How it works:
+// Fault Type		Fault Name			Fault category (0=Nuisence, 1=Discrepancy, 2=Red-X)		Also Triggers
+//	xxx, xxxxxxxxx, 0, xxxxxxxx
+
+Fault_Type: CCU
+Fault_Name: CCU-CCU 1
+Fault_Category: 2 
+Fault_Triggers: CCU1
+
+Fault_Type: CCU
+Fault_Name: CCU1
+Fault_Category: 2
+Fault_Triggers: null
+
+Fault_Type: CCU
+Fault_Name: CCU-CCU 2
+Fault_Category: 2
+Fault_Triggers: CCU2
+
+Fault_Type: CCU
+Fault_Name: CCU2
+Fault_Category: 2
+Fault_Triggers:
+
+Fault_Type: CCU
+Fault_Name: CCU-ICS_PLT
+Fault_Category: 1
+Fault_Triggers: null
+
+Fault_Type: CCU
+Fault_Name: CCU-ICS_CPLT
+Fault_Category: 1
+Fault_Triggers: null
+
+Fault_Type: CCU
+Fault_Name: CCU-ICS_R_ACM
+Fault_Category: 1
+Fault_Triggers: null
+
+Fault_Type: CCU
+Fault_Name: CCU-ICS_L_ACM
+Fault_Category: 1
+Fault_Triggers: null
+
+Fault_Type: CCU
+Fault_Name: CCU-ICS_CR
+Fault_Category: 1
+Fault_Triggers: null
+
+Fault_Type: CCU
+Fault_Name: CCU-CNC 1
+Fault_Category: 1
+Fault_Triggers: CNC1
+
+Fault_Type: CCU
+Fault_Name: CNC1
+Fault_Category: 1
+Fault_Triggers: null
+
+Fault_Type: CCU
+Fault_Name: CCU-CNC 2
+Fault_Category: 1
+Fault_Triggers: CNC2
+
+Fault_Type: CCU
+Fault_Name: CNC2
+Fault_Category: 1
+Fault_Triggers: null
+
+Fault_Type: CCU
+Fault_Name: CCU-IFF_TCAS
+Fault_Category: 1
+Fault_Triggers: null
+
+Fault_Type: CCU
+Fault_Name: CCU-UHF
+Fault_Category: 1
+Fault_Triggers: null
+
+Fault_Type: CCU
+Fault_Name: CCU-VHF
+Fault_Category: 1
+Fault_Triggers: null
+
+Fault_Type: CCU
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
+Fault_Type: 
+Fault_Name: 
+Fault_Category:
+Fault_Triggers:
+
