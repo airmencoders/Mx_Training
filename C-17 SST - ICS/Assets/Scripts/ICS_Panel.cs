@@ -9,7 +9,7 @@ using UnityEngine;
 public class ICS_Panel : MonoBehaviour {
 
     public bool debugMode = false;
-    bool CCUfail = true;
+    bool CCUfail = false;
 
     // These are the 8 displays on the ICS Panel, this could be an array but there are 4 different behaviours
     public TextMesh LCD_Rad1;
@@ -853,7 +853,15 @@ public class ICS_Panel : MonoBehaviour {
     /// </summary>
     public void CCU_Disabled()
     {
-        CCUfail = false;
+        CCUfail = true;
+    }
+
+    /// <summary>
+    /// Public call to allow Unity UI objects to exit the program.
+    /// </summary>
+    public void QuitProgram()
+    {
+        Application.Quit();
     }
 
     /////////// HIGH USE FUNCTIONS ///////////
