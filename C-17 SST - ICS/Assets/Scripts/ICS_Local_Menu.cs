@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ICS_Local_Menu : MonoBehaviour {
 
@@ -79,13 +78,7 @@ public class ICS_Local_Menu : MonoBehaviour {
             show_Position = !show_Position;
         }
         
-        if (GUI.Button(new Rect(ScaleX(0.91f), ScaleY(0.02f), ScaleX(0.085f), ScaleY(0.16f)), "", GUIStyle.none))
-        {
-            if (directLoad) SceneManager.LoadScene("10_Main Menu");
-            else loadscreen.LoadScreen("10_Main Menu");
-        }
-
-
+        
         if (show_Position == true) RenderMenu_Position();
         DrawStatus();
     }
