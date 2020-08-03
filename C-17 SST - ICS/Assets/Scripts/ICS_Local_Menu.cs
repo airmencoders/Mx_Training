@@ -78,11 +78,7 @@ public class ICS_Local_Menu : MonoBehaviour {
         
             show_Position = !show_Position;
         }
-        if (GUI.Button(new Rect(ScaleX(0.255f), ScaleY(0.02f), ScaleX(0.085f), ScaleY(0.16f)), "", GUIStyle.none))
-        {
-            ics_panel.CCUfail = !ics_panel.CCUfail;
-        }
-
+        
         if (GUI.Button(new Rect(ScaleX(0.91f), ScaleY(0.02f), ScaleX(0.085f), ScaleY(0.16f)), "", GUIStyle.none))
         {
             if (directLoad) SceneManager.LoadScene("10_Main Menu");

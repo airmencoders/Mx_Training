@@ -106,8 +106,6 @@ public class ICS_Panel : MonoBehaviour {
         true       // BLANK, Not used
     };
 
-    public Renderer CCU_On;
-    public Renderer CCU_Off;
 
     //////////// ICS //////////// - See comm section for layout details
     enum ICS_Type
@@ -232,16 +230,6 @@ public class ICS_Panel : MonoBehaviour {
         SetAudio();             // Pass panel settings to audio playback module
         UpdateLCDS();           // Update LCD screens
 
-        if (CCUfail)
-        {
-            CCU_On.enabled = false;
-            CCU_Off.enabled = true;
-        }
-        else
-        {
-            CCU_On.enabled = true;
-            CCU_Off.enabled = false;
-        }
 
     }
 
