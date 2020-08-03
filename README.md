@@ -2,14 +2,24 @@
 
 **Status:**
 
-CMDS: Good
+ICS: 
+-Operational.
 
-ICS: Good
+CMDS: 
+-Pending code review.
 
-MCD: Works, but stuck in debug mode
+MCD: 
+-Pending code review
+-Stuck in debug mode.
 
-Aft Refuel: Non-functional on hold, pending evaluation for VR conversion
+Aft Refuel: 
+-Pending code review. 
+-Only BIT panel is functional
+-On hold, pending evaluation for VR conversion
 
+CNC: 
+-Initial development phase
+-No function currently exists
 
 
 
