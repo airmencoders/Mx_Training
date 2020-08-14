@@ -15,12 +15,16 @@ MCD:
 Aft Refuel: 
 -Pending code review. 
 -Only BIT panel is functional
--On hold, pending evaluation for VR conversion
+-On hold, APU trainer highest priority
 
 CNC: 
 -Initial development phase
 -No function currently exists
+-On hold, APU trainer highest priority
 
+APU:
+-Initial development phase
+-Start, and EGT modeled.
 
 
 
