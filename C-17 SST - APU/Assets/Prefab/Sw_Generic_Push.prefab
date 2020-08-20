@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6293100402700882799}
   - component: {fileID: 6293100402700882796}
   - component: {fileID: 6293100402700882797}
-  - component: {fileID: 6293100402700882793}
   m_Layer: 0
   m_Name: Sw_Generic_Push
   m_TagString: Untagged
@@ -94,23 +93,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6293100402700882793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6293100402700882787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89ef9ee7162626b46b5a3146e6bc3cd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isOn: 0
-  Mat_Off: {fileID: 2100000, guid: 151d361fb7721fd4abdfcdf9694d6125, type: 2}
-  Mat_On: {fileID: 2100000, guid: 2e4ecf013c522644db251cdb7b53421c, type: 2}
-  Mat_Upper: {fileID: 2100000, guid: a54f3e2dc6b80ea44b9d4fdacd34dcca, type: 2}
-  Mat_Lower: {fileID: 2100000, guid: 09b75a3a2299b5d4ca8e0d5b4318d086, type: 2}
-  splitSwitch: 0
-  illumUpper: 0
-  illumLower: 0
