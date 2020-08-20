@@ -49,7 +49,7 @@ public class Panel_Electric : MonoBehaviour
 
     public GameObject mdl_Batt_Off;
     public GameObject mdl_Batt_On;
-    public GameObject mdl_Emerg_Of;
+    public GameObject mdl_Emerg_Off;
     public GameObject mdl_Emerg_Auto;
     public GameObject mdl_Emerg_On;
     public GameObject mdl_Xfer_Off;
@@ -81,7 +81,8 @@ public class Panel_Electric : MonoBehaviour
     public AudioSource snd_Switch_Toggle;
     // Panel status
     bool UpdateReq = true;              // In case anything is changed on the default status check switches on first status
-    float BattTimer = 0.0f;
+    float XferTimer = 0.0f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -93,6 +94,16 @@ public class Panel_Electric : MonoBehaviour
     void Update()
     {
         UpdateStatus();
+        UpdateIndicators();
+    }
+
+    public void UpdateIndicators()
+    {
+        if (EmergPower) Ind_Emerg.turnOn();
+        else Ind_Emerg.turnOff();
+
+        if (!XferBus && BattOn) Ind_Xfer.turnOn();
+        else Ind_Xfer.turnOff();
     }
 
     public void UpdateStatus()
@@ -101,30 +112,55 @@ public class Panel_Electric : MonoBehaviour
         if(sw_Battery == 0)
         {
             // Turn everything off
+            BattOn = false;
+            EmergPower = false;
+            XferBus = false;
+            XferTimer = 0.0f;
             return;
         }
         else
         {
-            BattTimer += Time.deltaTime;
-            if (!XferBus)
+            XferTimer += Time.deltaTime;
+            if (!XferBus)       // Check if WAPS is initiated
             {
                 float InitDuration = snd_Wap_Init.clip.length;
-                if (BattTimer < InitDuration)
+                if (XferTimer < InitDuration)
                 {
                     if (!snd_Wap_Init.isPlaying) snd_Wap_Init.Play();
                 }
                 else
                 {
                     if (!snd_Wap_Loop.isPlaying) snd_Wap_Loop.Play();
-                    float FadeVolume = 1.0f - (BattTimer / 10.0f);
+                    float FadeVolume = 1.0f - (XferTimer / 10.0f);
                     if (FadeVolume < 0.1f) FadeVolume = 0.1f;
 
                     snd_Wap_Loop.volume = FadeVolume;
                 }
             }
-        }
-        
+            else
+            {
+                if (snd_Wap_Init.isPlaying) snd_Wap_Init.Stop();
+                if (snd_Wap_Loop.isPlaying) snd_Wap_Loop.Stop();
+            }
 
+            if (sw_EmergencyPower == 0)
+            {
+                EmergPower = false;
+            }
+            else
+            {
+                EmergPower = true;
+            }
+
+            if(sw_XferBus == 0)
+            {
+                XferBus = false;
+            }
+            else
+            {
+                XferBus = true;
+            }
+        }
     }
 
     public void ToggleBattery()
@@ -136,7 +172,6 @@ public class Panel_Electric : MonoBehaviour
             BattOn = true;
             mdl_Batt_On.SetActive(true);
             mdl_Batt_Off.SetActive(false);
-            BattTimer = 0.0f;
             snd_Switch_Toggle.Play();
         }
         else
@@ -148,5 +183,78 @@ public class Panel_Electric : MonoBehaviour
             snd_Switch_Toggle.Play();
         }
 
+    }
+
+    public void ToggleEmergencyDown()
+    {
+        if (sw_EmergencyPower < 2) sw_EmergencyPower++;
+        else return;
+
+        if(sw_EmergencyPower == 0)
+        {
+            mdl_Emerg_Off.SetActive(true);
+            mdl_Emerg_Auto.SetActive(false);
+            mdl_Emerg_On.SetActive(false);
+        }
+        else if (sw_EmergencyPower == 1)
+        {
+            mdl_Emerg_Off.SetActive(false);
+            mdl_Emerg_Auto.SetActive(true);
+            mdl_Emerg_On.SetActive(false);
+        }
+        else if (sw_EmergencyPower == 2)
+        {
+            mdl_Emerg_Off.SetActive(false);
+            mdl_Emerg_Auto.SetActive(false);
+            mdl_Emerg_On.SetActive(true);
+        }
+        snd_Switch_Toggle.Play();
+    }
+
+    public void ToggleEmergencyUp()
+    {
+        if (sw_EmergencyPower > 0) sw_EmergencyPower--;
+        else return;
+        
+        if (sw_EmergencyPower == 0)
+        {
+            mdl_Emerg_Off.SetActive(true);
+            mdl_Emerg_Auto.SetActive(false);
+            mdl_Emerg_On.SetActive(false);
+        }
+        else if (sw_EmergencyPower == 1)
+        {
+            mdl_Emerg_Off.SetActive(false);
+            mdl_Emerg_Auto.SetActive(true);
+            mdl_Emerg_On.SetActive(false);
+        }
+        else if (sw_EmergencyPower == 2)
+        {
+            mdl_Emerg_Off.SetActive(false);
+            mdl_Emerg_Auto.SetActive(false);
+            mdl_Emerg_On.SetActive(true);
+        }
+
+        snd_Switch_Toggle.Play();
+    }
+
+    public void ToggleXfer()
+    {
+        UpdateReq = true;
+        if (sw_XferBus == 0)
+        {
+            sw_XferBus = 1;
+            mdl_Xfer_On.SetActive(true);
+            mdl_Xfer_Off.SetActive(false);
+            snd_Switch_Toggle.Play();
+        }
+        else
+        {
+            sw_XferBus = 0;
+            mdl_Xfer_Off.SetActive(true);
+            mdl_Xfer_On.SetActive(false);
+            XferTimer = 0.0f;
+            snd_Switch_Toggle.Play();
+        }
     }
 }
