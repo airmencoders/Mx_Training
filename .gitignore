@@ -1,14 +1,10 @@
 CNC Panel/~REFERENCE - DO NOT UPLOAD/
 CNC Panel/Temp/UnityLockfile
-C-17 SST - Aft Refuel/Library/PackageCache/
-C-17 SST - Aft Refuel/Library/ShaderCache/
-C-17 SST - Aft Refuel/Library/metadata/00/00000000000000001000000000000000
-C-17 SST - Aft Refuel/Library/metadata/
-C-17 SST - CMDS/Library/PackageCache/
-C-17 SST - CMDS/Library/ShaderCache/
-C-17 SST - CMDS/Library/metadata/
+C-17 SST - Aft Refuel/Library/
+C-17 SST - CNC Panel/Library/
+C-17 SST - CMDS/Library/
 C-17 SST - ICS/Assets/30_ICS/Reference/
-C-17 SST - ICS/Library/PackageCache/
+C-17 SST - ICS/Library/
 C-17 SST - ICS/Library/metadata/
 C-17 SST - ICS/Library/ShaderCache/f/fd04c3408235c3638cd697fa968d0645.bin
 C-17 SST - ICS/Library/ShaderCache/
@@ -23,3 +19,8 @@ VR Dash86 Demo/Library/metadata/
 C-17 SST - APU/~REFERENCE/
 C-17 SST - APU/Library/Artifacts/
 C-17 SST - APU/Library/PackageCache/
+*.log
+C-17 SST - APU/Library/ScriptAssemblies/
+C-17 SST - APU/Library/ShaderCache/
+C-17 SST - CNC Panel/Library/metadata/
+C-17 SST - APU/Temp/
