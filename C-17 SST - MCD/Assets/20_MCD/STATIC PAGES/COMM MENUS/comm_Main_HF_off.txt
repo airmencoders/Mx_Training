@@ -1,0 +1,13 @@
+#1  comm/nav summary  #2
+KCHS       com          
+<239.0              OFF>
+         uhf/vhf        
+<OFF                OFF>
+            hf          
+>OFF                OFF<
+ m1 m2 iff-OFF mc ms m4 
+<-- --  6155   -- -- -->
+ mlis      nav     i--- 
+CH511              110.7
+ bca  AT/R tac/adf  def 
+<126X     120'    210.0>

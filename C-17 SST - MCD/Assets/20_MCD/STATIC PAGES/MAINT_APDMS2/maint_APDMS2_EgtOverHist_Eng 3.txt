@@ -1,0 +1,13 @@
+ eng 3 egt overtemp hist
+ gmt/ddmmyy maxt/dur/reg
+            tat/drt     
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                 return>

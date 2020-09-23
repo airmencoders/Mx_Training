@@ -1,0 +1,13 @@
+      comm index 1      
+ com         com preset 
+<RADIOS            MENU>
+ uhf/vhf                
+<RADIOS         UHF PRE>
+ hf                     
+<RADIOS         VHF PRE>
+ aero-i                 
+<MAIN MENU      HF1 PRE>
+                        
+<IFF/TCAS       HF2 PRE>
+ com/iff                
+*quick off       EM COM>

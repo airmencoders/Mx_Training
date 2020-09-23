@@ -1,0 +1,13 @@
+ eng 1 egt overtemp hist
+ gmt/ddmmyy maxt/dur/reg
+            tat/drt     
+2245/1409x5 660/00:27/a 
+            15/29       
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                 return>

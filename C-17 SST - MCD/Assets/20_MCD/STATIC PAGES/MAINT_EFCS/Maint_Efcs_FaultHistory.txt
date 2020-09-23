@@ -1,0 +1,13 @@
+  efcs fault history    
+ lru      gmt/date  flt 
+f_ol_flt  1942/031019 1 
+1  fcc_4 709            
+f_ol_flt  1942/031019 1 
+1  fcc_3 709
+f_ol_flt  1942/031019 1 
+1  fcc_2 709   
+f_ol_flt  1942/031019 1 
+1  fcc_1 709   
+
+                        
+                 return>

@@ -1,0 +1,13 @@
+    maintenance menu    
+                        
+<MC/EDS             CMU>
+                        
+<EFCS        SW VERSION>
+                        
+<SC/EFS                 
+                        
+ A/PDMS 1               
+                        
+<A/PDMS 2               
+                        
+<DEF SYSTEM      return>

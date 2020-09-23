@@ -1,0 +1,13 @@
+   efcs fault list      
+                        
+fcc_4:f_rad             
+  522                   
+fcc_1:f_rad             
+  522                   
+
+                        
+
+                        
+
+                        
+                 return>

@@ -1,0 +1,13 @@
+  a/pdms 2 maint menu   
+                        
+<fault list      obiggs 
+                        
+<fault history          
+                        
+<initiated bit          
+                        
+<initialization         
+                        
+<egt overtemp history   
+                        
+<n1 cycle cnts   return>

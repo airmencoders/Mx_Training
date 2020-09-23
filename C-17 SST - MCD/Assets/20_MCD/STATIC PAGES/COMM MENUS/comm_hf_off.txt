@@ -1,0 +1,13 @@
+#1         HF         #2
+                        
+OFF                  OFF
+ MODE:UV,LV,AM,OFF      
+>OFF                OFF<
+ SQL:OFF,LO,MED,HI      
+>OFF                OFF<
+ MUTE              MUTE 
+>OFF                OFF<
+ AUTO ANS      AUTO ANS 
+>SILENT          SILENT<
+ ALE                    
+<SCAN MENU       RETURN>

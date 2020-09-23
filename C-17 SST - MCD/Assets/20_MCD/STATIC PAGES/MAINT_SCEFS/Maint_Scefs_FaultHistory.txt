@@ -1,0 +1,13 @@
+ scefc fault history    
+ lru      gmt/date  flt 
+
+
+
+
+
+
+
+
+
+                        
+                 return>

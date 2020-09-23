@@ -1,0 +1,13 @@
+    efcs maint menu 
+                        
+<fault list             
+                        
+<fault history          
+                        
+<maintenance bit       
+                        
+<rig                    
+                        
+<lru initialization     
+                        
+<memory inspect  return>
