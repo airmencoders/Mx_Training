@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Manages the student failure screen, provides fading and other effects
+/// </summary>
 public class Fail_Screen_Manager : MonoBehaviour
 {
     
