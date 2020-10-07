@@ -1,13 +1,34 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using TMPro;
 using UnityEngine;
 
 public class Sim_APU : MonoBehaviour
 {
+    // Debugging
+    public bool Debug_External_Power = true;
+
+    // Public Objects
+    public TextMeshPro APU_RPM;
+    public TextMeshPro APU_EGT;
+
+    public Pwr_Tied_Light Ind_RPM_High;
+    public Pwr_Tied_Light Ind_EGT_High;
+    public Pwr_Tied_Light Ind_Low_FuelPress;
+    public Pwr_Tied_Light Ind_Autoshutdown;
+    public Pwr_Tied_Light Ind_Armed;
+    public Pwr_Tied_Light Ind_Discharge;
+
+    public GameObject Mdl_APU_Off;
+    public GameObject Mdl_APU_Run;
+    public GameObject Mdl_APU_Start;
+
+
+
     // Switches
+    int sw_APU_Mode_Toggle = 0;
+    float sw_APU_Start_Timer = 0.0f;
+
     bool sw_Auto_Shutdown_Override = false;
     public bool sw_Run = false;
     public bool sw_Start = false;
@@ -134,9 +155,13 @@ public class Sim_APU : MonoBehaviour
     public AudioSource APU_Loop;
     public AudioSource APU_End;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
+        if(Random.Range(0.0f, 1.0f) < 0.2f) sw_Auto_Shutdown_Override = true;
+        
         chart_EGT_Overspeed = chart_EGT_Norm;
         chart_EGT_Fire = chart_EGT_Norm;
     }
@@ -144,6 +169,10 @@ public class Sim_APU : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!Debug_External_Power) return;
+
+        UpdateIndicators();
+        
         if(sw_offArm || !sw_Run)
         {
             RPM_Target = 0.0f;
@@ -162,6 +191,91 @@ public class Sim_APU : MonoBehaviour
             CalcPhysics();
             return;
         }
+    }
+
+
+    /// <summary>
+    /// Move switch down
+    /// </summary>
+    public void APU_Sw_Down()
+    {
+        if (sw_APU_Mode_Toggle == 0)
+        {
+            sw_APU_Mode_Toggle = 1;
+        }
+        else if(sw_APU_Mode_Toggle == 1)
+        {
+            sw_APU_Mode_Toggle = 2;
+            sw_APU_Start_Timer = 0.5f;
+        }
+        else
+        {
+            sw_APU_Mode_Toggle = 2;
+            sw_APU_Start_Timer = 0.5f;
+        }
+            
+    }
+
+    /// <summary>
+    /// Move switch up
+    /// </summary>
+    public void APU_Sw_Up()
+    {
+        if (sw_APU_Mode_Toggle == 0) return;
+        sw_APU_Mode_Toggle--;
+    }
+
+    /// <summary>
+    /// Updates indicator lights
+    /// </summary>
+    void UpdateIndicators()
+    {
+        //Sets the main toggle switch position
+        if(sw_APU_Mode_Toggle == 0)
+        {
+            Mdl_APU_Off.SetActive(true);
+            Mdl_APU_Run.SetActive(false);
+            Mdl_APU_Start.SetActive(false);
+        }
+        else if(sw_APU_Mode_Toggle == 1)
+        {
+            Mdl_APU_Off.SetActive(false);
+            Mdl_APU_Run.SetActive(true);
+            Mdl_APU_Start.SetActive(false);
+        }
+        else if(sw_APU_Mode_Toggle == 2 && sw_APU_Start_Timer > 0.0f)
+        {
+            Mdl_APU_Off.SetActive(false);
+            Mdl_APU_Run.SetActive(false);
+            Mdl_APU_Start.SetActive(true);
+            sw_APU_Start_Timer -= Time.deltaTime;
+        }
+        else
+        {
+            sw_APU_Mode_Toggle = 1;
+        }
+
+        if(sw_APU_Mode_Toggle == 0)
+        {
+            disp_EGT.text = "";
+            disp_RPM.text = "";
+        }
+        else
+        {
+            disp_EGT.text = Mathf.Round(EGT).ToString();
+            disp_RPM.text = Mathf.Round(RPM).ToString();
+        }
+
+
+
+        if (sw_Auto_Shutdown_Override) Ind_Autoshutdown.SetMaterial(1);
+        else Ind_Autoshutdown.SetMaterial(0);
+
+        if (sw_Ext_Disch) Ind_Discharge.SetMaterial(1);
+        else Ind_Discharge.SetMaterial(0);
+
+        if (sw_offArm) Ind_Armed.SetMaterial(1);
+        else Ind_Armed.SetMaterial(0);
     }
 
     /// <summary>
@@ -246,5 +360,20 @@ public class Sim_APU : MonoBehaviour
     void GetFuzzy()
     {
 
+    }
+
+    public void toggleAutoShutDown()
+    {
+        sw_Auto_Shutdown_Override = !sw_Auto_Shutdown_Override;
+    }
+
+    public void toggleOffArm()
+    {
+        sw_offArm = !sw_offArm;
+    }
+
+    public void dischargeExtinguisher()
+    {
+        sw_Ext_Disch = true;
     }
 }

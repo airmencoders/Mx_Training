@@ -66,7 +66,7 @@ public class Panel_Electric : MonoBehaviour
     public Pwr_Tied_Light Ind_Bus_3;
     public Pwr_Tied_Light Ind_Bus_4;
 
-    public Light_Generic Ind_AC_Tie;
+    public Pwr_Tied_Light Ind_AC_Tie;
     public Pwr_Tied_Light Ind_DC_Tie;
 
     public Pwr_Tied_Light Ind_L_DC;
@@ -103,9 +103,11 @@ public class Panel_Electric : MonoBehaviour
     public void UpdateIndicators()
     {
         // Check if GPU is available, and set light
-        if (GPU_Avail && GPU_On)
+        if (GPU_Avail && sw_GPU == 1)
         {
             Ind_GPU.SetMaterial(2);
+            if (sw_AC_X_Tie == 1) Ind_AC_Tie.SetMaterial(1);
+            else Ind_AC_Tie.SetMaterial(0);
         }
         else if (GPU_Avail)
         {
@@ -185,7 +187,7 @@ public class Panel_Electric : MonoBehaviour
             return;
         }
 
-        if (sw_EmergencyPower == 0)     // Set emergency power
+        if (sw_EmergencyPower != 2)     // Set emergency power
         {
             EmergPower = false;
         }
@@ -281,7 +283,7 @@ public class Panel_Electric : MonoBehaviour
     {
         if (sw_EmergencyPower == 0)
         {
-            if (GPU_On)
+            if (sw_DC_X_Tie == 1)
             {
                 sw_EmergencyPower = 1;
 
