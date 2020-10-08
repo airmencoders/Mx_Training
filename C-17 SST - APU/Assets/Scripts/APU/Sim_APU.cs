@@ -8,6 +8,7 @@ public class Sim_APU : MonoBehaviour
 {
     // Debugging
     public bool Debug_External_Power = true;
+    public bool Debug_Fuel_Pressure = false;
 
     // Public Objects
     public TextMeshPro APU_RPM;
@@ -24,7 +25,8 @@ public class Sim_APU : MonoBehaviour
     public GameObject Mdl_APU_Run;
     public GameObject Mdl_APU_Start;
 
-
+    public WAP_Manager wap;
+    public Panel_Electric elec_manager;
 
     // Switches
     int sw_APU_Mode_Toggle = 0;
@@ -44,8 +46,10 @@ public class Sim_APU : MonoBehaviour
     bool ind_High = false;
     bool ind_Hot = false;
 
+    // Startup sequence variables
     bool status_StartSeq = false;
-    int status_StartSeq_Step = 0;
+    public int status_StartSeq_Step = 0;
+    float seqTimer = 0.0f;
 
     bool fault_Overspeed = false;
     bool fault_Fire = false;
@@ -147,8 +151,6 @@ public class Sim_APU : MonoBehaviour
     };
 
 // External Objects
-    public GameObject light_High;
-    public GameObject light_Hot;
     public TextMeshPro disp_EGT;
     public TextMeshPro disp_RPM;
 
@@ -173,7 +175,7 @@ public class Sim_APU : MonoBehaviour
     {
         CalcPhysics();
         
-        if (!Debug_External_Power) return;
+        //if (!Debug_External_Power) return;
         UpdateIndicators();
         
 
@@ -188,9 +190,6 @@ public class Sim_APU : MonoBehaviour
 
         if(sw_Run)
         {
-            disp_RPM.text = Mathf.Round(RPM).ToString();
-            disp_EGT.text = Mathf.Round(EGT).ToString();
-
             if (sw_Start) status_StartSeq = true;
             return;
         }
@@ -227,27 +226,42 @@ public class Sim_APU : MonoBehaviour
             sw_APU_Mode_Toggle = 1;
         }
 
-        if(sw_APU_Mode_Toggle == 0)
-        {
-            disp_EGT.text = "";
-            disp_RPM.text = "";
-        }
-        else
+        // Sets all indicators & displays
+        if (Debug_External_Power)
         {
             disp_EGT.text = Mathf.Round(EGT).ToString();
             disp_RPM.text = Mathf.Round(RPM).ToString();
+
+            if(sw_APU_Mode_Toggle >= 1)
+            {
+                if (Debug_Fuel_Pressure) Ind_Low_FuelPress.SetMaterial(0);
+                else Ind_Low_FuelPress.SetMaterial(1);
+
+                if (sw_Auto_Shutdown_Override) Ind_Autoshutdown.SetMaterial(1);
+                else Ind_Autoshutdown.SetMaterial(0);
+
+                if (sw_Ext_Disch) Ind_Discharge.SetMaterial(1);
+                else Ind_Discharge.SetMaterial(0);
+
+                if (sw_offArm) Ind_Armed.SetMaterial(1);
+                else Ind_Armed.SetMaterial(0);
+            }
+            else
+            {
+                Ind_Low_FuelPress.SetMaterial(0);
+                Ind_Autoshutdown.SetMaterial(0);
+                Ind_Discharge.SetMaterial(0);
+                Ind_Armed.SetMaterial(0);
+            }
         }
-
-
-
-        if (sw_Auto_Shutdown_Override) Ind_Autoshutdown.SetMaterial(1);
-        else Ind_Autoshutdown.SetMaterial(0);
-
-        if (sw_Ext_Disch) Ind_Discharge.SetMaterial(1);
-        else Ind_Discharge.SetMaterial(0);
-
-        if (sw_offArm) Ind_Armed.SetMaterial(1);
-        else Ind_Armed.SetMaterial(0);
+        else // No power to panel, disable indicators. TODO: Check if fire switches tie to battery bus instead of mode switch
+        {
+            Ind_Low_FuelPress.SetMaterial(0);
+            Ind_Autoshutdown.SetMaterial(0);
+            Ind_Discharge.SetMaterial(0);
+            Ind_Armed.SetMaterial(0);
+            
+        }
     }
 
     /// <summary>
@@ -261,9 +275,15 @@ public class Sim_APU : MonoBehaviour
 
         if(status_StartSeq)
         {
-            if(RPM < 0.1f)      // Check if we at a low enough RPM to start
+            if(sw_APU_Mode_Toggle == 0 && status_StartSeq_Step == 5)
             {
-                status_StartSeq_Step = 4;
+                status_StartSeq_Step = 6;
+
+            }
+            
+            if(RPM < 0.1f && status_StartSeq_Step == 0)      // Check if we at a low enough RPM to start
+            {
+                status_StartSeq_Step = 1;
             }
             /*
             else                // ABORT start sequence
@@ -273,13 +293,35 @@ public class Sim_APU : MonoBehaviour
                 RPM_Target = 0.0f;
             }*/
 
-            if(status_StartSeq_Step == 1)
+            if (status_StartSeq_Step == 1)       // Set light flash timer
             {
-                // START TIMER
+                seqTimer = 0.0f;
+                status_StartSeq_Step = 2;
+                Debug.Log("Start initiated");
             }
-            else if (status_StartSeq_Step == 2)
+            else if (status_StartSeq_Step == 2) // Flash lights
             {
-                // FLASH LIGHTS
+                if (seqTimer < 0.5f)
+                {
+                    Ind_EGT_High.SetMaterial(0);
+                    Ind_RPM_High.SetMaterial(0);
+                }
+                else if (seqTimer < 1.0f)
+                {
+                    Ind_EGT_High.SetMaterial(1);
+                    Ind_RPM_High.SetMaterial(1);
+                }
+                else if (seqTimer < 1.5f)
+                {
+                    Ind_EGT_High.SetMaterial(0);
+                    Ind_RPM_High.SetMaterial(0);
+                }
+                else if (seqTimer < 2.0f)
+                {
+                    status_StartSeq_Step = 4;
+                }
+
+                seqTimer += Time.deltaTime;
             }
             else if (status_StartSeq_Step == 3)
             {
@@ -290,18 +332,50 @@ public class Sim_APU : MonoBehaviour
             {
                 if (APU_Start.isPlaying == false) APU_Start.Play();
                 RPM_Target = 100.0f;
-                status_StartSeq_Step = 5;
+                wap.AddCue("APU ");
+                status_StartSeq_Step = 5;   // Enter running sequence
+                
             }
             else if (status_StartSeq_Step == 5)
             {
                 if (APU_Start.isPlaying == false && APU_Loop.isPlaying == false) APU_Loop.Play();
             }
+            else if (status_StartSeq_Step == 6)
+            {
+                Debug.Log("Shutdown Initated via mode switch");
+                if (RPM > 15.0f)
+                {
+                    APU_Start.Stop();
+                    APU_Loop.Stop();
+                    APU_End.Play();
+                }
+                else
+                {
+                    APU_Start.Stop();
+                    APU_Loop.Stop();
+                    APU_End.Stop();
+                }
+                seqTimer = 0.0f;
+                status_StartSeq_Step = 7;
 
-            
+            }
+            else if (status_StartSeq_Step == 7)
+            {
+                seqTimer += Time.deltaTime;
+                if (seqTimer > 1.0f) status_StartSeq_Step = 8;
+            }
+            else if (status_StartSeq_Step == 8)
+            {
+                sw_Run = false;
+                sw_Start = false;
+            }
 
 
 
-        }
+
+
+
+            }
 
         if (RPM > RPM_Target)
         {
@@ -315,6 +389,7 @@ public class Sim_APU : MonoBehaviour
         }
 
         float EGT_AdjTarget = EGT_Target + Temp_Ambient;
+        if (elec_manager.sw_APU == 2) EGT_AdjTarget += 25.0f;
 
         if (EGT > EGT_AdjTarget)
         {
@@ -333,8 +408,6 @@ public class Sim_APU : MonoBehaviour
     /// </summary>
     void GetFuzzy()
     {
-        Debug.Log(DateTime.Now.Month);
-
         switch (DateTime.Now.Month)
         {
             case 1:
@@ -412,7 +485,8 @@ public class Sim_APU : MonoBehaviour
     /// </summary>
     public void APU_Sw_Up()
     {
-        sw_APU_Mode_Toggle--;
+        if (sw_APU_Mode_Toggle > 0) sw_APU_Mode_Toggle--;
+        else return;
 
         if (sw_APU_Mode_Toggle == 0)
         {
