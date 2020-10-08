@@ -29,6 +29,8 @@ public class WAP_Manager : MonoBehaviour
 
     public TextMeshPro Text_WAP_Cue;
 
+    public AudioSource WAP_Cue_Sound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -91,6 +93,7 @@ public class WAP_Manager : MonoBehaviour
     /// </summary>
     public void AddCue(string message)
     {
+        WAP_Cue_Sound.Play();
         if (Cue_Messages[currentCue] == message)
         {
             Caution_Set = true;
