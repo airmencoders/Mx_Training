@@ -3823,7 +3823,7 @@ GameObject:
   - component: {fileID: 263572203}
   - component: {fileID: 263572202}
   m_Layer: 5
-  m_Name: Btn_Elec APU Pwr
+  m_Name: Btn_Elec APU Pwr - Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3845,8 +3845,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -143.6, y: 24.9}
-  m_SizeDelta: {x: 35, y: 35}
+  m_AnchoredPosition: {x: -143.6, y: 36}
+  m_SizeDelta: {x: 35, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &263572202
 MonoBehaviour:
@@ -3892,7 +3892,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2102698983}
-        m_MethodName: ToggleAPUreset
+        m_MethodName: ToggleAPUPower_Up
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4832,6 +4832,27 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &325878299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6293100402700882787, guid: 9347d904b5eab53499cdb47866cf79ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 2095147583}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &325878300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325878299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 672fcc9ce0117334bace5103aea5d023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat:
+  - {fileID: 2100000, guid: 1d8b57b4aeb39794e85a6a21e1696b48, type: 2}
+  - {fileID: 2100000, guid: 78d5e9d7efdb30f4ca4ded41a6bc7a47, type: 2}
 --- !u!1 &337214685
 GameObject:
   m_ObjectHideFlags: 0
@@ -6019,6 +6040,135 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 458475062}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &469998257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 469998258}
+  - component: {fileID: 469998261}
+  - component: {fileID: 469998260}
+  - component: {fileID: 469998259}
+  m_Layer: 5
+  m_Name: Btn_Elec APU Pwr - Down
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &469998258
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469998257}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1042348710}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -143.6, y: 13}
+  m_SizeDelta: {x: 35, y: 25}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &469998259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469998257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 0, g: 1, b: 0, a: 0.3529412}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 469998260}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2102698983}
+        m_MethodName: ToggleAPUPower_Down
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &469998260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469998257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 96bb05a5978d02a4f98578ce702bb3a3, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &469998261
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469998257}
+  m_CullTransparentMesh: 0
 --- !u!1 &473033379 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6293100402700882787, guid: 9347d904b5eab53499cdb47866cf79ff,
@@ -6329,6 +6479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Debug_External_Power: 1
+  Debug_Fuel_Pressure: 0
   APU_RPM: {fileID: 1671522927}
   APU_EGT: {fileID: 218084231}
   Ind_RPM_High: {fileID: 2031218499}
@@ -6340,11 +6491,12 @@ MonoBehaviour:
   Mdl_APU_Off: {fileID: 1264109638}
   Mdl_APU_Run: {fileID: 949446459}
   Mdl_APU_Start: {fileID: 1304271878}
+  wap: {fileID: 754762684}
+  elec_manager: {fileID: 2102698983}
   sw_Run: 0
   sw_Start: 0
   RPM: 0
-  light_High: {fileID: 0}
-  light_Hot: {fileID: 0}
+  status_StartSeq_Step: 0
   disp_EGT: {fileID: 218084231}
   disp_RPM: {fileID: 1671522927}
   APU_Start: {fileID: 77181280}
@@ -6359,6 +6511,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 537691926}
+  - component: {fileID: 537691927}
   m_Layer: 0
   m_Name: Overhead Fuel Panel
   m_TagString: Untagged
@@ -6387,6 +6540,22 @@ Transform:
   m_Father: {fileID: 349899776}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &537691927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537691925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dfdc764a3df15946b6856841e989280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Debug_Power_Avail: 1
+  elec_manager: {fileID: 2102698983}
+  ind_Tank3_Pump_Fwd: {fileID: 1032427016}
+  ind_Tank3_Pump_Aft: {fileID: 325878300}
 --- !u!1001 &543210266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7512,7 +7681,7 @@ PrefabInstance:
     - target: {fileID: 6293100402700882787, guid: 9347d904b5eab53499cdb47866cf79ff,
         type: 3}
       propertyPath: m_Name
-      value: Sw_Pwr - External Power (28)
+      value: Sw_Fuel - Tank 3 Fwd Pump
       objectReference: {fileID: 0}
     - target: {fileID: 6293100402700882796, guid: 9347d904b5eab53499cdb47866cf79ff,
         type: 3}
@@ -9700,6 +9869,7 @@ MonoBehaviour:
   Ind_Caution: {fileID: 1609302245}
   Ind_Warning: {fileID: 598799493}
   Text_WAP_Cue: {fileID: 2120832717}
+  WAP_Cue_Sound: {fileID: 174314622}
 --- !u!1 &757697001 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6293100402700882787, guid: 9347d904b5eab53499cdb47866cf79ff,
@@ -10812,7 +10982,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 866946844}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 537691927}
+        m_MethodName: ToggleTank3Fwd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &866946844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12939,6 +13120,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1015241878}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1032427015 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6293100402700882787, guid: 9347d904b5eab53499cdb47866cf79ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 618682407}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1032427016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032427015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 672fcc9ce0117334bace5103aea5d023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat:
+  - {fileID: 2100000, guid: 1d8b57b4aeb39794e85a6a21e1696b48, type: 2}
+  - {fileID: 2100000, guid: 78d5e9d7efdb30f4ca4ded41a6bc7a47, type: 2}
 --- !u!1 &1036481437
 GameObject:
   m_ObjectHideFlags: 0
@@ -12970,7 +13172,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1042348710}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -13102,6 +13304,7 @@ RectTransform:
   - {fileID: 167889823}
   - {fileID: 1660848513}
   - {fileID: 263572201}
+  - {fileID: 469998258}
   - {fileID: 1036481438}
   - {fileID: 2142302273}
   m_Father: {fileID: 988952622}
@@ -18903,6 +19106,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1997535738}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1460976606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20893,7 +21107,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1656367995}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 537691927}
+        m_MethodName: ToggleTank3Aft
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1656367995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22360,6 +22585,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 535156456}
         m_MethodName: APU_Sw_Up
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1997535738}
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26174,7 +26410,7 @@ PrefabInstance:
     - target: {fileID: 6293100402700882787, guid: 9347d904b5eab53499cdb47866cf79ff,
         type: 3}
       propertyPath: m_Name
-      value: Sw_Pwr - External Power (29)
+      value: Sw_Fuel - Tank 3 Aft Pump
       objectReference: {fileID: 0}
     - target: {fileID: 6293100402700882796, guid: 9347d904b5eab53499cdb47866cf79ff,
         type: 3}
@@ -26311,6 +26547,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bc599e4f3ab72640b775c108a669b5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Debug_External_Avail: 1
+  Debug_APU_Avail: 1
+  sw_APU: 1
+  sw_GPU: 0
   mdl_APU_Reset: {fileID: 88577736}
   mdl_APU_Off: {fileID: 924324332}
   mdl_APU_On: {fileID: 1403449734}
@@ -26331,6 +26571,7 @@ MonoBehaviour:
   mdl_Emerg_On: {fileID: 1671117205}
   mdl_Xfer_Off: {fileID: 1112684003}
   mdl_Xfer_On: {fileID: 1124333229}
+  apu_manager: {fileID: 535156456}
   Ind_APU: {fileID: 175504792}
   Ind_GPU: {fileID: 473033380}
   Ind_Bus_1: {fileID: 449624359}
@@ -26886,7 +27127,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1042348710}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
