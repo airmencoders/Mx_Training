@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;       // Used to get time/date
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -160,7 +161,8 @@ public class Sim_APU : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(Random.Range(0.0f, 1.0f) < 0.2f) sw_Auto_Shutdown_Override = true;
+        GetFuzzy();     // Randomize a few things to make things more "exciting"
+        if(UnityEngine.Random.Range(0.0f, 1.0f) < 0.2f) sw_Auto_Shutdown_Override = true;
         
         chart_EGT_Overspeed = chart_EGT_Norm;
         chart_EGT_Fire = chart_EGT_Norm;
@@ -169,16 +171,18 @@ public class Sim_APU : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CalcPhysics();
+        
         if (!Debug_External_Power) return;
-
         UpdateIndicators();
         
+
         if(sw_offArm || !sw_Run)
         {
             RPM_Target = 0.0f;
             status_StartSeq = false;
             status_StartSeq_Step = 0;
-            CalcPhysics();
+            
             return;
         }
 
@@ -188,42 +192,10 @@ public class Sim_APU : MonoBehaviour
             disp_EGT.text = Mathf.Round(EGT).ToString();
 
             if (sw_Start) status_StartSeq = true;
-            CalcPhysics();
             return;
         }
     }
 
-
-    /// <summary>
-    /// Move switch down
-    /// </summary>
-    public void APU_Sw_Down()
-    {
-        if (sw_APU_Mode_Toggle == 0)
-        {
-            sw_APU_Mode_Toggle = 1;
-        }
-        else if(sw_APU_Mode_Toggle == 1)
-        {
-            sw_APU_Mode_Toggle = 2;
-            sw_APU_Start_Timer = 0.5f;
-        }
-        else
-        {
-            sw_APU_Mode_Toggle = 2;
-            sw_APU_Start_Timer = 0.5f;
-        }
-            
-    }
-
-    /// <summary>
-    /// Move switch up
-    /// </summary>
-    public void APU_Sw_Up()
-    {
-        if (sw_APU_Mode_Toggle == 0) return;
-        sw_APU_Mode_Toggle--;
-    }
 
     /// <summary>
     /// Updates indicator lights
@@ -342,11 +314,13 @@ public class Sim_APU : MonoBehaviour
             RPM += Time.deltaTime * 5.0f;
         }
 
-        if (EGT > EGT_Target)
+        float EGT_AdjTarget = EGT_Target + Temp_Ambient;
+
+        if (EGT > EGT_AdjTarget)
         {
             EGT -= Time.deltaTime * 100.0f;
 
-            if (EGT < 0.0f) EGT = 0.0f;
+            if (EGT < EGT_AdjTarget) EGT = EGT_AdjTarget;
         }
         else
         {
@@ -355,10 +329,99 @@ public class Sim_APU : MonoBehaviour
     }
 
     /// <summary>
-    /// Adds a EGT fuzz factor, for APU wear, pack, and generator variation
+    /// Adds a EGT fuzz factor, date only for now
     /// </summary>
     void GetFuzzy()
     {
+        Debug.Log(DateTime.Now.Month);
+
+        switch (DateTime.Now.Month)
+        {
+            case 1:
+                Temp_Ambient = UnityEngine.Random.Range(0.0f, 10.0f);
+                break;
+            case 2:
+                Temp_Ambient = UnityEngine.Random.Range(5.0f, 15.0f);
+                break;
+            case 3:
+                Temp_Ambient = UnityEngine.Random.Range(15.0f, 25.0f);
+                break;
+            case 4:
+                Temp_Ambient = UnityEngine.Random.Range(25.0f, 35.0f);
+                break;
+            case 5:
+                Temp_Ambient = UnityEngine.Random.Range(35.0f, 40.0f);
+                break;
+            case 6:
+                Temp_Ambient = UnityEngine.Random.Range(31.0f, 36.0f);
+                break;
+            case 7:
+                Temp_Ambient = UnityEngine.Random.Range(35.0f, 40.0f);
+                break;
+            case 8:
+                Temp_Ambient = UnityEngine.Random.Range(31.0f, 39.0f);
+                break;
+            case 9:
+                Temp_Ambient = UnityEngine.Random.Range(25.0f, 37.0f);
+                break;
+            case 10:
+                Temp_Ambient = UnityEngine.Random.Range(15.0f, 30.0f);
+                break;
+            case 11:
+                Temp_Ambient = UnityEngine.Random.Range(15.0f, 25.0f);
+                break;
+            case 12:
+                Temp_Ambient = UnityEngine.Random.Range(0.0f, 15.0f);
+                break;
+            default:
+                Debug.Log("Invalid month for setting ambient temp!");
+                break;
+        }
+
+    }
+
+    #region Public_Switches
+    /// <summary>
+    /// Move switch down
+    /// </summary>
+    public void APU_Sw_Down()
+    {
+        if (sw_APU_Mode_Toggle == 0)
+        {
+            sw_APU_Mode_Toggle = 1;
+            sw_Run = true;
+            sw_Start = false;
+        }
+        else if (sw_APU_Mode_Toggle == 1)
+        {
+            sw_APU_Mode_Toggle = 2;
+            sw_APU_Start_Timer = 0.5f;
+            sw_Start = true;
+        }
+        else
+        {
+            sw_APU_Mode_Toggle = 2;
+            sw_APU_Start_Timer = 0.5f;
+            
+        }
+
+    }
+
+    /// <summary>
+    /// Move switch up
+    /// </summary>
+    public void APU_Sw_Up()
+    {
+        sw_APU_Mode_Toggle--;
+
+        if (sw_APU_Mode_Toggle == 0)
+        {
+            sw_Run = false;
+            sw_Start = false;
+            return;
+        }
+        
+
 
     }
 
@@ -376,4 +439,5 @@ public class Sim_APU : MonoBehaviour
     {
         sw_Ext_Disch = true;
     }
+    #endregion
 }
