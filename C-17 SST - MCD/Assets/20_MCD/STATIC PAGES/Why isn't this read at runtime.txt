@@ -1,1 +1,0 @@
-AF Policy prohibits me from deploying this as a standalone appliaction. WebGL does not allow for local file access, whould have been cool for future proofing/menus configuration.

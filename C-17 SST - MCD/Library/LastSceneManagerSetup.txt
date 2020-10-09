@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/20_MCD/20_MCD.unity
-  isLoaded: 1
-  isActive: 1
