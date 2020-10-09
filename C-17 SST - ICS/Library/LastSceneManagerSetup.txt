@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/30_ICS/30_ICS.unity
-  isLoaded: 1
-  isActive: 1
