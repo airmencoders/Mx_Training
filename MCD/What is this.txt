@@ -1,0 +1,3 @@
+Repo removed from public access, for access contact Devin Bable via e-mail using GAL.
+
+This sim provides realistic simulation of the C-17 mission computer display for the purpose of postflight inspection.
