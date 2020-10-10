@@ -2,29 +2,20 @@
 
 **Status:**
 
-ICS: 
--Operational.
+ICS (Complete): 
+-Interphone Control Set panel, full simulation. Teaching control operation and provides full audio feedback.
 
-CMDS: 
--Pending code review.
+CMDS (Complete): 
+-Countermeasure Dispense control panel for postflare loading. Used to provide alternate solution should physical training device not be accessible.
 
-MCD: 
--Pending code review
--Stuck in debug mode.
+MCD (Complete)
+-Mission computer display for the purpose of postflight inspection, not simulated on physical training device. Was performed on aircraft.
 
-Aft Refuel: 
--Pending code review. 
--Only BIT panel is functional
--On hold, APU trainer highest priority
+APU (In progress):
+-Supports startup & shutdown of APU, designed to address potential training shortfall, and reduce utilization of physical training device.
 
-CNC: 
--Initial development phase
--No function currently exists
--On hold, APU trainer highest priority
-
-APU:
--Initial development phase
--Start, and EGT modeled.
+VR - Dash 86 (Complete):
+-Proof of concept demo designed to prove viability on low-cost Android based headsets, address classroom limitations, and safety concerns.
 
 
 
@@ -41,7 +32,7 @@ It does not replace the instructor nor provide step by step instructions. All si
 perform like they do on the aircraft in any order.
 
 
-Contact devin.bable@us.af.mil with any questions, full credits are located in the user manual
+Contact TSgt Devin Bable via GAL, full credits are located in the user manual
 
 
 **Project Information**
@@ -50,15 +41,4 @@ Contact devin.bable@us.af.mil with any questions, full credits are located in th
 
 -Designed for use on desktop or SmartBoard
 
-
-**Features**
-
--Power on built-in test
-
--Correct menus interaction via PRGM switch
-
--Simulates random flare mispoll count (Simulates top-left corner of flare canister not being seated)
-
--Jettison switch random chance of being on (Fail on power application, student should check per TO)
-
--Mode switch random chance of being on (Fail on power application, student should check per TO)
+-VR designed for use on Oculus Go
