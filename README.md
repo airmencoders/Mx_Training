@@ -1,3 +1,5 @@
+***NOTE THIS REPO IS AT A NEW LOCATION, CONTACT AUTHOR FOR ACCESS***
+
 ***C-17 Single System Trainer(SST)***
 
 **Status:**
